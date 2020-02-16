@@ -30,14 +30,25 @@
         <table class="table table-hover">
             <thead>
                 <tr>
+                    <th>Status</th>
                     <th>Title</th>
                     <th>Body</th>
-                    <th>Action</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let article of articles">
-                    <td scope="row">{{ article.title }}</td>
+                <tr  (dblclick)="deleteArticle(article.id)" *ngFor="let article of articles">
+                    <td>
+                        <button [ngClass]="{
+                            'btn-success' : article.active,
+                            'btn-warning' : !article.active
+                        }"
+                         (click)="changeStatus(article)"
+                         class="btn btn-sm mr-2">
+                            <i class="fa fa-power-off"></i>
+                        </button>
+                    </td>
+                    <td>{{ article.title }}</td>
                     <td>{{ article.body }}</td>
                     <td class="text-right" nowrap>
                         <button class="btn btn-warning btn-sm mx-2" (click)="editArticle(article)">

@@ -27,8 +27,13 @@ export class ArticleService {
   update(data: Article){
     let newData = {
       title : data.title,
-      body : data.body
+      body : data.body,
+      active : data.active
     }
     return this.http.put(`${this.apiUrl}/${data.id}`, newData)
+  }
+
+  activate(article: Article){
+    return this.http.patch(`${this.apiUrl}/${article.id}`, { active: !article.active } )
   }
 }

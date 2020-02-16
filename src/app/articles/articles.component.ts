@@ -17,6 +17,7 @@ export class ArticlesComponent implements OnInit {
   articles: Article[] = []
 
   myArticle: Article = {
+    active : false,
     title: "",
     body: ""
   }
@@ -38,6 +39,7 @@ export class ArticlesComponent implements OnInit {
       this.articles = [res, ...this.articles]
 
       this.myArticle = {
+        active : false,
         title: "",
         body: ""
       }
@@ -100,11 +102,18 @@ export class ArticlesComponent implements OnInit {
   updateArticle(){
     this.articleService.update(this.myArticle).subscribe(res => {
       this.myArticle = {
+        active : false,
         title: "",
         body: ""
       }
       this.display = false
       this.editable = false
+    })
+  }
+
+  changeStatus(article: Article){
+    this.articleService.activate(article).subscribe(res => {
+      article.active = !article.active
     })
   }
 
