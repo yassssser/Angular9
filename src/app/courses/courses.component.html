@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12">
+        <h1>{{ title }}</h1>
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <input type="text" (keyup.enter)="addCourse()" [(ngModel)]="myCourse.label" class="form-control" placeholder="New course...">
+                <!-- // keyup.control.arrowdonw -->
+                <button (click)="addCourse()" class="btn btn-primary btn-block my-2">Add to list</button>
+                <ul class="list-group">
+                    <li class="list-group-item"
+                         *ngFor="let course of listCourses; index as i, odd as o, even as e, first as f, last as l">
+                        {{course.label}}
+                    <div class="text-right">
+                        <button class="btn btn-sm btn-warning mx-2">
+                            <i class="fa fa-pencil action"></i> Edit
+                        </button> 
+                        <button class="btn btn-sm btn-danger" (click)="deleteCourse(course.id)">
+                            <i class="fa fa-trash action"></i> Delete
+                        </button>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

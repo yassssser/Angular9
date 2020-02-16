@@ -1,0 +1,32 @@
+<div class="row my-2">
+    <div class="col-md-12 text-center text-primary">
+        <h1>List of Users</h1>
+    </div>
+</div>
+
+<div class="row my-2">
+    <div class="col-md-12 input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text text-primary" id="basic-addon1">
+                <i class="fa fa-search"></i>
+            </span>
+        </div>
+        <input type="text" [(ngModel)]="search"
+                           (keyup.enter)="searchUsers()"
+                           class="form-control" placeholder="Search for User..." />
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-3 col-sm-6" *ngFor="let user of users">
+        <div class="card">
+            <img class="card-img-top" [src]="user.avatar_url" alt="{{ user.login }}">
+            <div class="card-body">
+                <h1 class="card-title">{{ user.login }}</h1>
+                <div class="card-text">
+                    <a [href]="user.html_url" target="_blank" class="btn btn-info btn-block">Visite Github profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

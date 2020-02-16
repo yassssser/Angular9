@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "title": "learn angular",
+      "body": "js front-end framwork",
+      "id": 1
+    },
+    {
+      "title": "learn ngrx",
+      "body": "with ngrx",
+      "id": 2
+    },
+    {
+      "title": "reactjs",
+      "body": "facebook front-end framwork",
+      "id": 3
+    },
+    {
+      "title": "learn svelt",
+      "body": "sveltjs framwork",
+      "id": 4
+    }
+  ]
+}
