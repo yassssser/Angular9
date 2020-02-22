@@ -15,6 +15,17 @@ import { GithubUsersComponent } from './github-users/github-users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ArticlesComponent } from './articles/articles.component'
 
+import { RouterModule } from '@angular/router'
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+const routes = [
+  { path: "", component: ArticlesComponent },
+  { path: "blog", component: ArticlesComponent },
+  { path: "github", component: GithubUsersComponent },
+  { path: "courses", component: CoursesComponent },
+  { path: "**", component: PageNotFoundComponent }
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +41,8 @@ import { ArticlesComponent } from './articles/articles.component'
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
